@@ -269,42 +269,40 @@
 
     <script>
         function submitForm() {
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const whatsapp = document.getElementById('whatsapp').value;
-            const empresa = document.getElementById('empresa').value;
-            const cargo = document.getElementById('cargo').value;
-            const desafio = document.getElementById('desafio').value;
+    const nome = document.getElementById('nome').value;
+    const whatsapp = document.getElementById('whatsapp').value;
+    const empresa = document.getElementById('empresa').value;
+    const cargo = document.getElementById('cargo').value;
+    const desafio = document.getElementById('desafio').value;
 
-            if (!nome || !email || !whatsapp || !empresa || !cargo || !desafio) {
-                alert('Por favor, preencha todos os campos obrigatórios');
-                return;
-            }
+    if (!nome || !whatsapp || !empresa || !cargo || !desafio) {
+        alert('Por favor, preencha todos os campos obrigatórios');
+        return;
+    }
 
-            const formData = {
-                nome,
-                email,
-                whatsapp,
-                empresa,
-                cargo,
-                desafio,
-                timestamp: new Date().toISOString()
-            };
+    const formData = {
+        nome,
+        whatsapp,
+        empresa,
+        cargo,
+        desafio,
+        timestamp: new Date().toISOString()
+    };
 
-            // Salvar no localStorage
-            const leads = JSON.parse(localStorage.getItem('converteai_leads') || '[]');
-            leads.push(formData);
-            localStorage.setItem('converteai_leads', JSON.stringify(leads));
+    // Salvar no localStorage
+    const leads = JSON.parse(localStorage.getItem('converteai_leads') || '[]');
+    leads.push(formData);
+    localStorage.setItem('converteai_leads', JSON.stringify(leads));
 
-            // Mostrar sucesso
-            document.getElementById('formulario-container').innerHTML = `
-                <div class="bg-emerald-900/40 border border-emerald-500/50 rounded-lg p-6 text-center">
-                    <div class="text-emerald-400 text-6xl mb-4">✓</div>
-                    <h3 class="text-2xl font-bold text-emerald-400 mb-2">Interesse Registrado!</h3>
-                    <p class="text-gray-300">Em breve entraremos em contato para validar sua necessidade e apresentar o Converte AI.</p>
-                </div>
-            `;
-        }
+    // Mostrar sucesso
+    document.getElementById('formulario-container').innerHTML = `
+        <div class="bg-emerald-900/40 border border-emerald-500/50 rounded-lg p-6 text-center">
+            <div class="text-emerald-400 text-6xl mb-4">✓</div>
+            <h3 class="text-2xl font-bold text-emerald-400 mb-2">Interesse Registrado!</h3>
+            <p class="text-gray-300">Em breve entraremos em contato para validar sua necessidade e apresentar a Converte AI.</p>
+        </div>
+    `;
+}
     </script>
 </body>
 </html>
